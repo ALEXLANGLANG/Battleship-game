@@ -1,0 +1,18 @@
+package edu.duke.xs75.battleship;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+public class ComputerPlayerTest {
+  @Test
+  public void test_genCoord() {
+    
+    Board<Character> b1 = new BattleShipBoard<Character>('X', 10, 20);
+    V1V2ShipFactory factory = new V1V2ShipFactory();
+    ComputerPlayer p = new ComputerPlayer("A", b1, System.out, factory);
+    Coordinate c = p.generateACoord();
+    assertEuqals(true, c!= null);
+  }
+
+}

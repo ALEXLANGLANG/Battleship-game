@@ -1,0 +1,1651 @@
+Player A: do you want a computer to represent you? Please enter  Y (yes) or N (no).
+Player A: do you want a computer to represent you? Please enter  Y (yes) or N (no).
+Player B: do you want a computer to represent you? Please enter  Y (yes) or N (no).
+Player B: do you want a computer to represent you? Please enter  Y (yes) or N (no).
+Player A used a special action.
+
+Player B used a special action.
+
+Player A used a special action.
+
+Player B used a special action.
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A used a special action.
+
+Player B used a special action.
+
+Player A used a special action.
+
+Player B used a special action.
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A used a special action.
+
+Player B used a special action.
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A used a special action.
+
+Player B used a special action.
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Destroyer!
+
+Player B hit a Destroyer!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Submarine!
+
+Player B hit a Submarine!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Destroyer!
+
+Player B hit a Destroyer!
+
+Player A hit a Submarine!
+
+Player B hit a Submarine!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Submarine!
+
+Player B hit a Submarine!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Destroyer!
+
+Player B hit a Destroyer!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Submarine!
+
+Player B hit a Submarine!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Destroyer!
+
+Player B hit a Destroyer!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Destroyer!
+
+Player B hit a Destroyer!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Submarine!
+
+Player B hit a Submarine!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Submarine!
+
+Player B hit a Submarine!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Destroyer!
+
+Player B hit a Destroyer!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A hit a Submarine!
+
+Player B hit a Submarine!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A hit a Destroyer!
+
+Player B hit a Destroyer!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Destroyer!
+
+Player B hit a Destroyer!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Submarine!
+
+Player B hit a Submarine!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Destroyer!
+
+Player B hit a Destroyer!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A hit a Destroyer!
+
+Player B hit a Destroyer!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Submarine!
+
+Player B hit a Submarine!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Destroyer!
+
+Player B hit a Destroyer!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Destroyer!
+
+Player B hit a Destroyer!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Destroyer!
+
+Player B hit a Destroyer!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Destroyer!
+
+Player B hit a Destroyer!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A hit a Submarine!
+
+Player B hit a Submarine!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Destroyer!
+
+Player B hit a Destroyer!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Submarine!
+
+Player B hit a Submarine!
+
+Player A hit a Submarine!
+
+Player B hit a Submarine!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Destroyer!
+
+Player B hit a Destroyer!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Carrier!
+
+Player B hit a Carrier!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A missed!
+
+Player B missed!
+
+Player A hit a Battleship!
+
+Player B hit a Battleship!
+
+Player A hit a Submarine!
+
+Player B hit a Submarine!
+
+Player A hit a Submarine!
+
+Player B hit a Submarine!
+
+Player A hit a Destroyer!
+
+Player A you are the winner!

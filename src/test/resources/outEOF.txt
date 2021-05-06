@@ -1,0 +1,45 @@
+Player A: do you want a computer to represent you? Please enter  Y (yes) or N (no).
+Player B: do you want a computer to represent you? Please enter  Y (yes) or N (no).
+  0|1|2|3|4|5|6|7|8|9
+A  | | | | | | | | |  A
+B  | | | | | | | | |  B
+C  | | | | | | | | |  C
+D  | | | | | | | | |  D
+E  | | | | | | | | |  E
+F  | | | | | | | | |  F
+G  | | | | | | | | |  G
+H  | | | | | | | | |  H
+I  | | | | | | | | |  I
+J  | | | | | | | | |  J
+K  | | | | | | | | |  K
+L  | | | | | | | | |  L
+M  | | | | | | | | |  M
+N  | | | | | | | | |  N
+O  | | | | | | | | |  O
+P  | | | | | | | | |  P
+Q  | | | | | | | | |  Q
+R  | | | | | | | | |  R
+S  | | | | | | | | |  S
+T  | | | | | | | | |  T
+  0|1|2|3|4|5|6|7|8|9
+
+Player B: you are going to place the following ships. For each ship, type the coordinate of the upper left side of the ship, followed by either H (for horizontal) or V (for vertical) for Submarines and Destroyers, and followed by U (up), R (right), L (left) or D (down) for Battleships and Carriers.  For example M4H would place a ship horizontally starting at M4 and going to the right.  You have
+
+2 "Submarines" ships that are 1x2 rectangles (represented by "s")
+3 "Destroyers" that are 1x3 rectangles (represented by "d")
+3 "Battleships" that are shown as below
+        b      OR    b         bbb          b
+        bbb          bb   OR    b     OR   bb
+                     b                      b
+ 
+        Up          Right      Down        Left
+2 "Carriers" that are shown as below
+        c                        c
+        c            ccc         c
+        cc   OR    ccc      OR  cc     OR  ccc
+        c                       c            ccc
+        c                       c
+             
+        Up          Right      Down        Left
+
+Player B where would you like to put your Submarine?
