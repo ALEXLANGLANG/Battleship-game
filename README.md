@@ -1,343 +1,451 @@
-# Version 1 Walkthrough Overview:
+For this assignment, you are going to write a text-based version of the game "battleship".
+If you are not familiar with the game, you can read about it here:
 
-Before we dive into the details, lets think about what classes we need,
-and what fields and methods they might have.
-We'll start with a high-level first pass
+ https://en.wikipedia.org/wiki/Battleship_(game)
 
-
-
- - class: Board
-    fields: width + height
-    fields: ships (list? map from coordinates to ships? set?)
-    method: check validity of ship placement
-       * this sounds complicated enough it should be abstracted out
-    method: place piece
-    method: check what is in a square
-       * happens in a variety of ways: hit/miss, to display "own" ocean,
-         to display "enemy" ocean
-    method: check for winning/losing
-    method: displayBoard
-       * take parameter for whether for own or enemy
-
- - class: Ship
-     fields: coordinates on board
-     fields: which squares have been hit
-     field:  letter for type of ship (s, d, c, b).
-     field:  string for the name of the ship type
-     method: isSunk
-     method: getletter
-     method: occupiesCoordinates
-     method: getname
-
- - class: InputParser
-     method: readAndParsePlacement  //e.g. A0V or  M3H
-     method: readAndParseTarget     //B2  or H8
-     
-From doing this, we might realize that we would really like classes for Coordinate and Placement.
-Adding those gives us what I would call the "551 level" of OO Design: we have identified nouns to
-make into classes and the verbs that go with them.  We've broken it down into a few pieces to make
-the large problem more manageable.
-
-That is where we expect you to be right now, but we need to move past that as you are learning
-more about better OO Design.
-
-Here are several critiques of our initial thoughts:
-
- - Board does not follow SRP. Think about what requirements it is currently tied to:
-     -  winning/losing: what if we changed the rules for how you win/lose?  We would need to change Board
-     -  ship placement validity:  we might change these rules too.  We might later decide that ships
-                    need a minimum distance between them, etc.  That would need to change Board
-     -  displaying the board (including for self/enemy). What if we change this?  What if we make a GUI?
-     -  tracking the state of the board
+before you get started.  Of course, no matter how familiar you are with the game, please
+read our description, as we are going to make it slightly different from normal.
 
 
- - Ship and Board are both tightly coupled to our textual representation (which also means they violate MVC).
-        - For Board in a GUI, we wouldnt want to print it, but rather draw it
-        - For Ship, we wouldn't want a letter to display in a GUI, we might want a color or an image.
+Before we dive into the battleship game you need to write, let us take a moment to
+discuss the structure and goals of this assignment:
+  (1) To help you think about task breakdown, scheduling,  and planning.
+  (2) To bring you up to speed on Java
+  (3) To help you see incremental development and testing in action
+  (4) To let you see design ideas in practice
+  (5) To see how these design ideas work with respect to changing requirements.
+
+To acheive these goals, we have set this assignment up with three parts: Version 1, Version 2, and Extra Credit.
+We layout the requirements for all of these parts in this document.  We encourage you to read this entire
+document FIRST.  Note that in the real world, when requirements are going to change, you do not get
+to see "version 2" before you finish version 1.  However, you do here for the way the learning is structured.
+
+We are going to then walk you through Version 1.  At the start, we are going to be very prescriptive: telling
+you exactly what to do and how to do it.  As we go through Version 1, we will provide less and less detail with
+each step.   When you finish Version 1, you will be ready to start on Version 2, which you will do completely on your own.
+
+Here is what you should do:
+ (1) Read this README completely
+ (2) Spend ~5 minutes thinking about what classes you would make and what methods would go in them
+ (3) Read and do the walkthrough (see v1Overview.txt to start).
+     Note that this walkthrough will take a while as it comprises over half of the work
+     in this homework assignment.
+ (4) Git push your completed version 1 (after testing etc)
+ (5) Do version 2
+ (6) Submit version 2 by git push
 
 
- - The methods in InputParser tightly couple reading input with parsing it (note the "and" in our method names).
-   We could split them out into methods in InputParser, but we could also observe that we could make
-   our Coordinate and Placement have constructors that take Strings.
+=================
+|   Version 1   |
+=================
 
- - We are depending on specific classes, not interfaces
+We are going to play battleship on a text interface with a 20 high by
+10 wide grid (though see "extra credit" at the end for discussion of a
+graphical interface). Accordingly, we will have coordinates A0 through
+T9, like this:
+--------------------------------------------------------------------------------
+  0|1|2|3|4|5|6|7|8|9
+A  | | | | | | | | |  A
+B  | | | | | | | | |  B
+C  | | | | | | | | |  C
+D  | | | | | | | | |  D
+E  | | | | | | | | |  E
+F  | | | | | | | | |  F
+G  | | | | | | | | |  G
+H  | | | | | | | | |  H
+I  | | | | | | | | |  I
+J  | | | | | | | | |  J
+K  | | | | | | | | |  K
+L  | | | | | | | | |  L
+M  | | | | | | | | |  M
+N  | | | | | | | | |  N
+O  | | | | | | | | |  O
+P  | | | | | | | | |  P
+Q  | | | | | | | | |  Q
+R  | | | | | | | | |  R
+S  | | | | | | | | |  S
+T  | | | | | | | | |  T
+  0|1|2|3|4|5|6|7|8|9
+--------------------------------------------------------------------------------
 
-Let's take a moment to tackle these before we proceed:
+The game has two players, player A and player B.  While it would be
+much nicer to have a networked game where player A and B are at two
+different computers, we are not going to make you do that (though see
+"extra credit" at the end).  Each player has 8 ships as follows:
+
+2 "Submarines" ships that are 1x2 
+3 "Destroyers" that are 1x3
+3 "Battleships" that are 1x4
+2 "Carriers" that are 1x6
+
+The first phase of the game asks the players to place their
+ships. Player A places his ships first, while player B closes her
+eyes.  The game should display a blank board (as above), and explain
+ship placement as follows:
+
+--------------------------------------------------------------------------------
+Player A: you are going to place the following ships (which are all
+rectangular). For each ship, type the coordinate of the upper left
+side of the ship, followed by either H (for horizontal) or V (for
+vertical).  For example M4H would place a ship horizontally starting
+at M4 and going to the right.  You have
+
+2 "Submarines" ships that are 1x2 
+3 "Destroyers" that are 1x3
+3 "Battleships" that are 1x4
+2 "Carriers" that are 1x6
+--------------------------------------------------------------------------------
+
+The game should then prompt player A for each ship, e.g.,
+
+--------------------------------------------------------------------------------
+Player A where do you want to place a Submarine?
+--------------------------------------------------------------------------------
+
+If the location is invalid (collides with another ship, results in a
+ship going off the grid, etc), you should explain the problem to
+player, and ask them to place again.  Note that you should ignore case
+(so M4H m4h m4H M4h are all the same).  If placement is successful,
+you should display the board with the ship on it.  Show an s d b or c
+for the ship type respectively.  For example, after a submarine at
+M4H, another submarine at A0V and a destroyer at B2V, you would
+display:
+
+--------------------------------------------------------------------------------
+Current ocean:
+  0|1|2|3|4|5|6|7|8|9
+A s| | | | | | | | |  A
+B s| |d| | | | | | |  B
+C  | |d| | | | | | |  C
+D  | |d| | | | | | |  D
+E  | | | | | | | | |  E
+F  | | | | | | | | |  F
+G  | | | | | | | | |  G
+H  | | | | | | | | |  H
+I  | | | | | | | | |  I
+J  | | | | | | | | |  J
+K  | | | | | | | | |  K
+L  | | | | | | | | |  L
+M  | | | |s|s| | | |  M
+N  | | | | | | | | |  N
+O  | | | | | | | | |  O
+P  | | | | | | | | |  P
+Q  | | | | | | | | |  Q
+R  | | | | | | | | |  R
+S  | | | | | | | | |  S
+T  | | | | | | | | |  T
+  0|1|2|3|4|5|6|7|8|9
+--------------------------------------------------------------------------------
+
+After displaying the board, prompt for the next ship.  Repeat this
+until all ships are placed.  You should display the board one more
+time after the last ship is placed (so with 10 ships,
+you will display the board 11 times if there are no errors in
+placement).
 
 
- 1. First, let us look at the tight coupling of the Ship + Board to the character-based text interface.
-    We need to have some data in these classes to accomplish our goals (e.g., a character), but
-    we don't want to "bake in" this assumption.   Instead, we'd like to be flexible in our data
-    type for later.  This is a great use of Generics.  We can make a Ship<T> is the type of
-    information our view needs.  For text-based battleship, we'll have Ship<Character>.
-    If you later add a GUI, you could have Ship<Color>, or even Ship<Image>
+After doing this for player A, repeat the process for player B (player
+A should close his eyes while player B places ships).  Note that
+player A's ships and player B's ships are different "oceans" so player
+B will start with a blank board, and can place her ships anywhere
+(e.g., even though Player A has a sub at A0, player B can place a ship
+at A0 also, since they are "different" A0s).
 
-    Should we just make our Ship<Character> hold a Character (e.g., 's') for
-    its display info?   We need at least two: the type (e.g., 's') and
-    one to indicate what a hit should show ('*').
+Next play begins.   Turns alternate between each player, with player A
+going first.  First, display the board to player A.   You will display
+two things: player A's ships and what hits/misses player A has already
+made.  In this display, you will use the same layout/symbols as above,
+but with * to indicate a hit portion of your own ship, and X to
+indicate a miss on an enemy ship.  For example:
 
-    For a GUI-based implementation we might want something even more complicated:
-    we might have different images for each "piece" of a ship (the front, middle,
-    back), and different images for different piece that have been hit or not.
+--------------------------------------------------------------------------------
+Player A's turn:
+     Your ocean                           Player B's ocean
+  0|1|2|3|4|5|6|7|8|9                    0|1|2|3|4|5|6|7|8|9   
+A s| | | | | | | |c|  A                A  | | | | | | | | |  A
+B s| |d| | | | | |c|  B                B  | | | | | | | | |  B
+C  | |*| | | | | |c|  C                C  | |X| | | | | | |  C
+D  | |d| | | | | |c|  D                D  |X|d|d| | | | | |  D
+E  | | | | | | | |c|  E                E  | |X| | | | | | |  E
+F  | |d| | | | | |c|  F                F  | | | | | | | | |  F
+G  | |d| | | |b| | |  G                G  | | | | | | | | |  G
+H  | |d| | | |b| | |  H                H  | | | | | | | | |  H
+I  | | | | | |b| | |  I                I  | | | | | | | | |  I
+J  | | | | | |b| | |  J                J  | | |X| | | | | |  J
+K c|c|c|c|c|c| | | |  K                K  | | | | | | | | |  K
+L  | | | | | | | | |  L                L  | | | |X| | | | |  L
+M  | | | |s|s| | | |  M                M  | | | | | | | | |  M
+N  | | | | | | | | |  N                N  | | | | | | | | |  N
+O  | | | | | |b| | |  O                O  | | | | |s|s| | |  O
+P  | | | | | |b| | |  P                P  | | | | | | | | |  P
+Q  | | | | | |b| | |  Q                Q  | | | | | | | | |  Q
+R  | | | | | |b| | |  R                R  | | | | | | | | |  R
+S  | | | | | | | | |  S                S  | | | | | | | | |  S
+T d|d|d| | | | | | |  T                T  | | | | | | | | |  T
+  0|1|2|3|4|5|6|7|8|9                    0|1|2|3|4|5|6|7|8|9
+--------------------------------------------------------------------------------
+
+In the above example, player A has successfully hit player B's ships at
+four locations:
+
+O5: a submarine
+O6: a submarine
+D2: a destroyer
+D3: a destroyer
+
+and missed player B's ships at D1, C2, E2, J3, and L4 (meaning no
+ships are located there)
+
+Player A's own ships have been hit once, at C2.
+
+Player A is then prompted for the coordinate to fire at.   If the
+coordinates are invalid, the game should prompt player A to enter
+a valid choice. The game will then report the result, such as
+
+--------------------------------------------------------------------------------
+You hit a carrier!
+--------------------------------------------------------------------------------
+or
+--------------------------------------------------------------------------------
+You missed!
+--------------------------------------------------------------------------------
+
+Play then proceeds with Player B's turn.   The boards are displayed
+for Player B (so Player B's state is shown on the left with all of B's
+ships known, and Player A's ocean is shown on the right with only
+hits/misses known).
+
+Play continues to alternate until one player has no more ships.  When
+one player has no more ships, the other player wins.  Your game should
+print a message stating who won, and then exit.
+
+Before proceeding to Version 2, please check that...
+   o You have met all requirements for Version 1
+   o You have rigorously and thoroughly tested your code
+   o You have commented your code well
+   o You have made a git commit which contains your version 1 code
+     (i.e. "delivered" version 1 to your client)
+
+=================
+|   Version 2   |
+=================
+
+
+After completing version 1 of battleship, your customer changes the
+requirements slightly, and you now need to make version 2.   There are
+three changes to the requirements:
+
+
+ (1) Changes to ship design.
+     To spice the game up a bit, the customer decided that there
+     should be some different ship shapes that are not just
+     rectangular.
+
+
+     In particular, each player now has the following ship types:
+
+        - 2 "Submarines" that are 1x2 rectangles (represented by "s")
+        - 3 "Destroyers" that are 1x3 rectangles (represented by "d")
+        - 3 "Battleships" that are now shaped as shown below
+
+               b      OR    b         bbb         b
+              bbb           bb   OR    b     OR  bb
+                            b                     b
+
+               Up          Right      Down      Left
+        - 2 "Carriers" that are now shaped as shown below
+        
+                  c                        c            
+                  c            ccc         c         
+                  cc   OR    ccc      OR  cc     OR  ccc     
+                   c                      c            ccc 
+                   c                      c
+                   
+                 Up           Right     Down          Left
+      Note that the submarines and Destroyers are unchanged, and still
+      have horizontal (H) and vertical (V) orientations.
+      
+      Battleships and Carriers now have new shapes, and 4 orientations
+      (as pictured above).  These four orientations are now up (U),
+      right (R), down (D), and left (L), with each diagram above
+      having its orientation written below it.
+
+      Accordingly, placing a Battleship or a Carrier requires
+      coordinates that end with U,L,R, or D instead of H or V.
+      Note that the coordinates still name the top left of
+      the ship.  We re-draw each ship with a * below to indicate
+      where the coordinates name (even if it not part of the ship
+      itself)
+
+         Battleships:
+              *b      OR    *         *bb        *b
+              bbb           bb   OR    b     OR  bb
+                            b                     b
+
+               Up          Right      Down      Left
+               
+         Carriers:
+                  *                       *c            
+                  c          * ccc         c         
+                  cc   OR    ccc      OR  cc     OR  *cc     
+                   c                      c            ccc 
+                   c                      c
+                   
+                 Up           Right     Down          Left
+
+   (2) New moves.
+       A player now has 2 new actions, each of which is limited to
+       3 uses per game.  At the start of player's turn, the game
+       should display the board, prompt for which action type the
+       player wants to use, and then prompt for any information
+       needed for that action type.  For example:
+--------------------------------------------------------------------------------
+Possible actions for Player A:
+
+ F Fire at a square
+ M Move a ship to another square (2 remaining)
+ S Sonar scan (1 remaining)
+
+Player A, what would you like to do?
+--------------------------------------------------------------------------------
+
+
+       Note:  once a player is out of their 3 uses of a the new
+       moves you MAY (but do not have to) omit that item from the menu
+       entirely.  You may also, if all 3 uses of both new actions
+       are used up, go directly to the "fire" action as in version 1.
+       
+            (2a)  Move ship.
+                  When using this move type, a player selects one of
+                  his/her own ships (the game should prompt for which
+                  ship, and the player should be able to type any
+                  coordinate which is a part of the ship they want).
+                  The player then is prompted for a new placement
+                  (location + orientation, as in initial placement).
+                  The ship is then moved to that position.  Any
+                  existing damage to the ship remains in the
+                  same relative position(s) of the ship.
+
+                  If the player selects an invalid location,
+                  the player is re-prompted for their actions (and
+                  might select move again, or might select a different
+                  action).
  
-    We can then imagine an interface for ShipPieceDisplayInfo<T>
+                  Note that the other player's display does NOT gain
+                  any information that the ship moved.  If they
+                  previously hit that ship, the hit markers remain.
+                  If they previously missed the new location, those
+                  markers also remain.
 
-    interface ShipDisplayInfo<T> {
-       public T getInfo(Coordinate where, boolean hit);
-    }
+           (2b)   Sonar scan.
+                  When the player selects this move type, the game
+                  prompts for the center coordinates of a sonar scan.
+                  Any coordinate on the game board is valid, even
+                  if part of the scan will go off the edges of the
+                  board.
 
-    and then our Ship might have
+                  The game then considers the following pattern
+                  around (and including) the center (C)
 
-    public class Ship<T> {
-       private ShipDisplayInfo<T> displayInfo; //gets injected in constructor
+                                    *
+                                   ***
+                                  *****
+                                 ***C***
+                                  *****
+                                   ***
+                                    *
 
-       public T getDisplayInfoAt(Coordinate c) {
-         //code coming later
-       }
-    }
-
- 2. Next, let us work on Board.  Here is what we started with:
- 
-    fields: width + height
-    fields: ships (list? map from coordinates to ships? set?)
-    method: check validity of ship placement
-       * this sounds complicated enough it should be abstracted out
-    method: place piece 
-    method: check what is in a square
-       * happens in a variety of ways: hit/miss, to display "own" ocean, to display "enemy" ocean
-    method: check for winning/losing
-    method: displayBoard
-       * take parameter for whether fo own or enemy
+                 and reports on the number of squares occupied by each
+                 type of ship in that region.   For example:
 
 
-    - First, let us separate out displayBoard (view) from Board (model).  We'll have a BoardTextView class.
-      Also, as we change our Ship to Ship<T> our Board will need to be Board<T> also.
-    
-    - Second, checking placement validity is something we'd really like Board to be able to do... but
-    we also want to separate it out.  Can we have our cake and eat it too?
-    Yes of course!
+--------------------------------------------------------------------------------
+Submarines occupy 2 squares
+Destroyers occupy 0 squares
+Battleships occupy 5 squares
+Carriers occupy 1 square
+--------------------------------------------------------------------------------
 
-    We can make an interface for PlacementRuleChecker and have Board's validity check be something like
+                 Note that no information about the exact position of
+                 any ship in that region is report.  There is also no
+                 information about how many of each ship---only how
+                 many squares are occupied.  We do not know if 2
+                 squares occupied by submarines is one submarine
+                 entirely inside the region, or 2 submarines with
+                 one square in the region and one square outside of
+                 the region.
 
-       public boolean canPlace(Ship piece, Placement where, PlacementRuleChecker checker)
+    (3) Play against computer.
+        When the game starts, it should prompt the user for whether
+        each of Player A and/or Player B is a human player or to be
+        played by the computer (Note that any combination is valid:
+        human vs human, human vs computer, computer vs human, or
+        computer vs computer).
 
-    You might think "ugh we just made PlacementRuleChecker" nasty, but we'll come back to that later
-    and see a really nice way to do it!
+        Your computer play does NOT need to be very smart---you are not
+        expected to develop any sophisticated AI.   Your computer
+        player can just randomly place its ships (as long as they are
+        valid locations) and can just randomly fire at any square on
+        its turn.  However, if you want to make a fancier computer
+        player see "extra credit" at the end of this document.
 
-    - Third, we can just pull out the winning/losing logic into its own class.  We'll make an interface
-      for it (let's call it CompletionRules), so we can easily change things later.   
+        When the computer plays its turn, no board state should
+        be displayed and no prompts should be printed.   The game
+        should only print the outcome of the action (e.g.,
+        Player B hit your submarine at D4!).
 
- 3. We are depending on specific classes (Board and Ship) rather than interfaces. Lets make
-    Board an Interface and have BattleShipBoard as the concrete implementation.  Likewise,
-    we'll make Ship an interface.  What concrete classes do we have?
-
-    One thought might be
-      CarrierShip
-      DestroyShip
-      SubmarineShip
-      BattleShip
-
-    But let us note that these classes really only differ in *data* not behavior.  E.g.,
-    one is 1x2 and has letter 's' and another is 1x4 and has letter 'b'.
-
-    We could also imagine
-
-     RectangleShip
-
-    which covers all the ships in Version 1.  We might then have other classes for
-    Version 2's ships.
-
-    We could also realize that all our ships really are just sets of coordinates
-    (and maybe some behaviors that go with them).   This means that we could have
-    this inheritance hierarchy:
-
-        interface Ship
-         |
-         --abstract class RectangleShip
-                  |
-                  |--LinearShip //covers all Version 1 ships
-                  |--TShapedShip //Version 2 BattleShip
-                  |--ZShapedShip //Version 2 Carrier
+        If the computer plays a special action, the game should state
+        "Player B used a special action" but not state which one nor
+        any details of where or its outcome.
 
 
-    
-Ok, *now* we have a pretty good idea of what our classes will look like:
+                 
+=================
+| Extra Credit  |
+=================
+                 
+  The above "game" is a nice activity in exploring changes to software
+  requirements/design, but a pretty terrible game (trying to play
+  battleship with two people using one computer, and trying not to
+  accidentally see something you should not does not really work well).
 
-
- 1.  interface Board<T>
- 2.  class BattleShipBoard<T> implementsBoard<T>
- 3.  interface Ship<T>
- 4.  abstract class BasicShip<T> implements Ship<T>
- 5.  class RectangleShip<T> extends BasicShip<T>
-  in version 2:   class TShapedShip<T> extends BasicShip<T>     
-  in version 2:   class ZShapedShip<T> extends BasicShip<T>
- 6.  class Coordinate with row + column
- 7.  class Placement with Coordinate where and  ??? orientation)
- 8.  class BoardTextView
- 9.  interface ShipDisplayInfo<T>
- 10. interface PlacementRuleChecker
- 11. interface CompletionRules  
- 12. class App  (the top level class that puts it all together)
- 
-We still have a few things to think about:
- (1) We don't need to just display one board, but really two: does that go in BoardTextView or some other class?
- (2) In [9] above (our Placement class) we put ??? for the orientation.   What do we want here?
-     char (H/V in Version 1, H/V/U/D/L/R in Version 2) would work but is unpleasant.
-     An interface would be nice, but what would the method look like?
-     Some sort of rotation would be nice, but our Version 2 pieces aren't even
-     truly rotations of each other (the carrier "flips" for D/R relative to U/L).
-     
-     We're going to go with "char" for orientation (even though we don't like it),
-     and see how it plays out.
-
- (3) I haven't spelled out all the details for all the classes.  That's ok.
-     We've got a good idea of the big picture, and can start with our first tasks.
-
-
-Next let's try to think about what our tasks are, in what order, and how long they will take:
-Note that all tasks include test cases and commenting of the code for that task.
-However, these are development time estimates (as if I were just writing
-the code).  They do not include the fact that you will be reading detailed
-instructions, which will make them take a bit longer.
+  *******************************************************************
+  *** Note that the extra credit is NOT due with the assignment, ***
+  *** but rather may be done after the deadline.                 ***
+  *** You may turn in any extra credit by April 4/2              ***
+  ******************************************************************
 
 
 
-//Goal 1: minimal end to end system
-    Task                                                Time Estimate [~2 hours]
-    -----------------------------------------------+------------------------
-  0. Project Setup                                        5 min
-  1. BattleShipBoard class                               10 min
-      - for now only width/height
-      - and getters/setters
-  2. BoardTextView that only does empty boards           15 minutes
-  3. Coordinate class                                    10 min
-      - including constructor that takes "A0" string   
-  4. Placement class                                     10 min
-      - including constructor that takes "A0V" string 
-  5. Ship interface                                      5 min
-  6. Placeholder BasicShip class                         15 min
-       - not abstract yet
-       - has one Coordinate
-       - most methods hard coded
-  7. Add ships to BattleShipBoard                        30 min
-       - add fields to hold them
-       - add place method
-       - no checking for valid placement yet
-       - get what is in a square
-           - only for our own board (not enemy board)
-           - no tracking if that square has been missed
-  8. Update BoardTextView to display boards with ships   15 min
-  9. App skeleton                             15 min
-      - make a board
-      - read a placement (no error handling yet)
-      - place piece on board
-      - display board
-      - exit
-
-Note that this first goal starts with very minimal state
-(the simplest "Board" we can make) and builds to an end to end system.
-The minimal end to end system has the "skeleton" of what we need
-to do: it reads a placement (for one ship), puts that ship
-on the board (just a single square placeholder now), displays
-the board.   We don't do the error handling yet for invalid
-placements, etc.
-
-Now we need to start getting rid of the placeholders and adding features.
-First lets make real ships:
-
-//Goal 2: real BasicShip class and RectangleShip
-
-    Task                                                Time Estimate [~1.5 hour]
-    -----------------------------------------------+------------------------
-  10. Make RectangleShip                                         30 min
-       - BasicShip now abstract
-       - RectangleShip has width/height
-  11. Add "hit tracking" to BasicShip                            30 min
-  12. Add name and display info to BasicShip                     30 min
-
-//Goal 3: check for valid placements
-    Task                                                Time Estimate [~1 hour]
-    -----------------------------------------------+------------------------
-  13. In Bounds Rule                                             20 min
-     - Make sure a new placement doesnt go off board
-  14. No Collision Rule                                          20 min
-     - Make sure a new placement overlap a ship
-  15. Put it all together                                        20 min
-
-//Goal 4: finish up "placement phase" of game
-    Task                                                Time Estimate [~1.5 hour]
-    -----------------------------------------------+------------------------
-  16.  Place all ships                                         30 min
-  17.  Error handling for placement                            30 min
-  18.  Second Player                                           30 min
-        - You need to do placement for one player,
-          then the other.  We have to add that here
-  
-//Goal 5: "Attacking Phase" of game
-    Task                                                Time Estimate [~2 hours]
-    -----------------------------------------------+------------------------
-  19. Display board for enemy                                  30 min
-  20. Display two boards side by side                          30 min
-  21. Checking for win/lose                                    30 min
-  22. Interact with user                                       30 min
-    - read coordinates (+ error handling)
-    - display outcomes
-
-
-These estimates work out to about 8 hours for version 1. Let us increase that
-to 10-12 given that you are reading detailed instructions, etc. 
-We also *strongly* encourage you to start early.  Do not wait until 12 hours
-before the deadline and try to do this in one marathon.  Instead we recommend the following:
- - Assignment released   Thursday  Jan 28
- - Do Goal 1 by 11:59 PM Wednesday Feb 3
- - Do Goal 2 by 11:59 PM Friday    Feb 5
- - Do Goal 3 by 11:59 PM Monday    Feb 8
- - Do Goal 4 by 11:59 PM Wednesday Feb 10                                     |
- - Do Goal 5 by 11:59 PM Friday    Feb 12                                     |
- - Version 2 between Friday Feb 12 and Friday Feb 19                          |
-    o Your own planning + execution of it                                     |
- - Assignment due 11:59 PM Monday Feb 19                                      V
-                                                                        **************
-To help encourage you to stay on track, we will offer you the following *extra credit*
-                                                                        **************
-if you meet the suggested completion dates for Goals 1-5                      ^
- o 5 Goals met: +3 points                                                     |
- o 4 Goals met: +2 points                                                     |
- o 3 Goals met: +1.5 points                                                   |
- o 2 Goals met: +1 point                                                      |
- o 1 Goal met:  +0.5 points
-
-To meet a goal, you need to have all the tasks for that goal done
-(as described in this walkthrough) including documentation and testing.
-Note that there several days to do Goal 1, but that does not mean you should wait until Friday!
-Get started on Wednesday: ask questions on Piazza, make sure you are clear on what you
-are doing, and give yourself time to handle problems.  If you can get ahead
-of things, that is much better than being behind things!   Also, plan
-carefully including the work for all of your classes, and any other constraints you have.
-
-
-git commit and git push for at least each task above (so for version 1,
-you would have at least 22 git commits and git pushes).   Note that as
-we will talk about later in the course, when you work in teams you need
-to merge you code often.  It is good to get in the habit of committing and pushing
-often now.  Also, git commit and git push is how we will see that you did
-the various tasks on the suggested timeline.
-
-Before we proceed, we want to take a second to note that this task breakdown
-has moved from what might seem like a dauntingly large task ("How will I write battleship??")
-to 22 tasks that are each of a size that should be approachable.
-
-
-Now that we have though about our class design, and broken things down into tasks,
-we are ready to get started.  We are going to walk you through the tasks,
-generally with more detail at the start and less at the end.
-
-The remainder of this walkthrough is broken down into files for
-individuals tasks (task0.txt, task1.txt,...)  and each of those
-are placed in a directory for the goal they correspond to.
-When you are ready to proceed, you should go to goal1/task0.txt,
-and start there.
+  We provide you with 3 opportunities for extra credit.  You may do
+  any combination of these (one, two, or three of them).  These are
+  rather open-ended, so the number of points gained will be decided
+  based on the quality of the work.
 
 
 
+  (1) Graphical User Interface.
+      Replace the text-based interface with something graphical.
+      A more polished, more intuitive UI will gain more points here.
+      
+  (2) Networked game.
+      Make the game so that the two players can be on different
+      computers.
+      You can explore a variety of features in this area from
+      simply using game play, but across a network, to adding
+      any number of features: user accounts/authentication,
+      match making, etc.  
+
+
+  (3) Intelligent computer play.
+      Instead of just having the computer fire randomly, write an
+      intelligent AI.  This could be small/simple improvements
+      (making use of special moves, using information from the
+      outcome of each shot to inform your next decisions) for
+      a few points, or it could be something very clever and
+      sophisticated for many.
+
+
+For any of these, what you add, how you add it, and anything else you
+want to improve about the game is up to you!
 
