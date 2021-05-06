@@ -1,4 +1,4 @@
-# Version 1 Walkthrough Overview:
+Version 1 Walkthrough Overview:
 
 Before we dive into the details, lets think about what classes we need,
 and what fields and methods they might have.
